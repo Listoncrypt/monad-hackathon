@@ -56,8 +56,8 @@ Follow these instructions to run the Gas Money training client on your local mac
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/mide-s/monad-hackathon.git
-cd monad-hackathon
+git clone https://github.com/Listoncrypt/monad.git
+cd monad
 ```
 
 ### 2. Set Up & Run Frontend

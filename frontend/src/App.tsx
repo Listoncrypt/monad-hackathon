@@ -189,7 +189,7 @@ function DashboardContent() {
                     </span>
                   </button>
                 </a>
-                <a href="https://github.com/mide-s/monad-hackathon" target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+                <a href="https://github.com/Listoncrypt/monad" target="_blank" rel="noreferrer" className="w-full sm:w-auto">
                   <button className="quest-btn-secondary px-8 py-3.5 text-xs font-mono tracking-widest w-full flex justify-center items-center">
                     <span className="flex items-center justify-center gap-2">
                       <span className="material-symbols-outlined text-sm">code</span>VIEW SOURCE
