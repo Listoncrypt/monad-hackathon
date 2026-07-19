@@ -700,8 +700,8 @@ No simulations. No risks. Just learning Monad by doing.`;
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
-      setDisplayed((prev) => prev + text.charAt(index));
       index++;
+      setDisplayed(text.slice(0, index));
       if (index >= text.length) {
         clearInterval(interval);
         setTypingComplete(true);
