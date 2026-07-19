@@ -22,8 +22,8 @@ export function Quest2({ onComplete, addLog, openExplainer }: Quest2Props) {
   const [sendTxHash, setSendTxHash] = useState<`0x${string}` | undefined>(undefined);
   const [mintTxHash, setMintTxHash] = useState<`0x${string}` | undefined>(undefined);
 
-  const { isSuccess: isSendSuccess } = useWaitForTransactionReceipt({ hash: sendTxHash });
-  const { isSuccess: isMintSuccess } = useWaitForTransactionReceipt({ hash: mintTxHash });
+  const { isLoading: isSendWaiting, isSuccess: isSendSuccess } = useWaitForTransactionReceipt({ hash: sendTxHash });
+  const { isLoading: isMintWaiting, isSuccess: isMintSuccess } = useWaitForTransactionReceipt({ hash: mintTxHash });
 
   const handleSendTransaction = () => {
     openExplainer({
