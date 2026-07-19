@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #131313;
+  --color-surface: #1a1a1a;
+  --color-surface-low: #0e0e0e;
+  --color-border: #2d2d2d;
+  --color-border-soft: #353534;
+  --color-foreground: #e5e2e1;
+  --color-primary: #00ff41;
+  --color-primary-fg: #002203;
+  --color-primary-soft: #00ff411a;
+  --color-secondary: #7a8471;
+  --color-text: #e5e2e1;
+  --color-muted: #71717a;
+  
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    margin: 0;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Animations */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes terminal-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Utilities */
+
+
+.terminal-blink {
+  animation: 1.1s step-end infinite terminal-blink;
+}
+
+.pulse-soft {
+  animation: 2s ease-in-out infinite pulse-soft;
+}
+
+.glass-card {
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+  background: rgba(26, 26, 26, 0.6);
+}
+
+.glow-on-hover {
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+
+.glow-on-hover:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 30px rgba(0, 255, 65, 0.25);
+}
+
+.glow-border {
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.glow-border:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 12px rgba(0, 255, 65, 0.1);
+}
+
+/* Primary Neon Quest Button */
+.quest-btn-primary {
+  background: var(--color-primary);
+  color: var(--color-primary-fg);
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quest-btn-primary:hover:not(:disabled) {
+  filter: brightness(1.1);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+}
+
+.quest-btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.quest-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Secondary Quest Button */
+.quest-btn-secondary {
+  color: var(--color-foreground);
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-border-soft);
+  cursor: pointer;
+  background: transparent;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quest-btn-secondary:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--color-primary);
+}
+
+.quest-btn-secondary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.quest-btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
