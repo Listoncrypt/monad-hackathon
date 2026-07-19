@@ -99,14 +99,14 @@ export function Quest1({ onComplete, addLog, openExplainer }: Quest1Props) {
   };
 
   useEffect(() => {
-    if (isSuccess && minting) {
+    if (isSuccess && txHash) {
       setMinting(false);
       addLog('Quest 1 Badge minted successfully!', 'success');
       setTimeout(() => {
         onComplete();
       }, 1000);
     }
-  }, [isSuccess, minting]);
+  }, [isSuccess, txHash]);
 
   return (
     <div className="glass-card rounded border border-primary/20 p-6 sm:p-8 shadow-2xl relative overflow-hidden w-full max-w-2xl mx-auto glow-border">

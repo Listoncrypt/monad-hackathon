@@ -85,22 +85,22 @@ export function Quest2({ onComplete, addLog, openExplainer }: Quest2Props) {
   };
 
   useEffect(() => {
-    if (isSendSuccess && sendTxReceipt && sending) {
+    if (isSendSuccess && sendTxHash) {
       setSending(false);
-      addLog(`Transaction confirmed in block ${sendTxReceipt.blockNumber}!`, 'success');
+      addLog(`Transaction confirmed on Monad testnet!`, 'success');
       setExplainerVisible(true);
     }
-  }, [isSendSuccess, sendTxReceipt, sending, addLog]);
+  }, [isSendSuccess, sendTxHash]);
 
   useEffect(() => {
-    if (isMintSuccess && minting) {
+    if (isMintSuccess && mintTxHash) {
       setMinting(false);
       addLog('Quest 2 Badge minted successfully!', 'success');
       setTimeout(() => {
         onComplete();
       }, 1500);
     }
-  }, [isMintSuccess, minting, addLog, onComplete]);
+  }, [isMintSuccess, mintTxHash]);
 
   return (
     <div className="glass-card rounded border border-primary/20 p-6 sm:p-8 shadow-2xl relative overflow-hidden w-full max-w-2xl mx-auto glow-border">

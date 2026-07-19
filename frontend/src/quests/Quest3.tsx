@@ -184,40 +184,40 @@ export function Quest3({ onComplete, addLog, openExplainer }: Quest3Props) {
 
   // Sync balances and states on completion of transaction steps
   useEffect(() => {
-    if (isMintSuccess && minting) {
+    if (isMintSuccess && mintTxHash) {
       setMinting(false);
       refetchBalance();
       addLog('100 GMT minted successfully to your address!', 'success');
     }
-  }, [isMintSuccess, minting]);
+  }, [isMintSuccess, mintTxHash]);
 
   useEffect(() => {
-    if (isApproveSuccess && approving) {
+    if (isApproveSuccess && approveTxHash) {
       setApproving(false);
       refetchAllowance();
       addLog('Spending allowance approved for DEX!', 'success');
     }
-  }, [isApproveSuccess, approving]);
+  }, [isApproveSuccess, approveTxHash]);
 
   useEffect(() => {
-    if (isSpendSuccess && spending) {
+    if (isSpendSuccess && spendTxHash) {
       setSpending(false);
       refetchBalance();
       refetchAllowance();
       addLog('DEX successfully spent your 100 GMT!', 'success');
       setExplainerVisible(true);
     }
-  }, [isSpendSuccess, spending]);
+  }, [isSpendSuccess, spendTxHash]);
 
   useEffect(() => {
-    if (isBadgeSuccess && claimingBadge) {
+    if (isBadgeSuccess && badgeTxHash) {
       setClaimingBadge(false);
       addLog('Quest 3 Badge minted successfully!', 'success');
       setTimeout(() => {
         onComplete();
       }, 1500);
     }
-  }, [isBadgeSuccess, claimingBadge]);
+  }, [isBadgeSuccess, badgeTxHash]);
 
   return (
     <div className="glass-card rounded border border-primary/20 p-6 sm:p-8 shadow-2xl relative overflow-hidden w-full max-w-2xl mx-auto glow-border">

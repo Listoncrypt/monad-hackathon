@@ -99,22 +99,22 @@ export function Quest4({ onComplete, addLog, openExplainer }: Quest4Props) {
   };
 
   useEffect(() => {
-    if (isSwapSuccess && swapping) {
+    if (isSwapSuccess && swapTxHash) {
       setSwapping(false);
       refetchTokenBalance();
       addLog('Successfully swapped 0.1 MON for 0.1 GMT!', 'success');
     }
-  }, [isSwapSuccess, swapping]);
+  }, [isSwapSuccess, swapTxHash]);
 
   useEffect(() => {
-    if (isBadgeSuccess && claimingBadge) {
+    if (isBadgeSuccess && badgeTxHash) {
       setClaimingBadge(false);
       addLog('Quest 4 Badge minted successfully! All quests completed.', 'success');
       setTimeout(() => {
         onComplete();
       }, 1500);
     }
-  }, [isBadgeSuccess, claimingBadge]);
+  }, [isBadgeSuccess, badgeTxHash]);
 
   return (
     <div className="glass-card rounded border border-primary/20 p-6 sm:p-8 shadow-2xl relative overflow-hidden w-full max-w-2xl mx-auto glow-border">

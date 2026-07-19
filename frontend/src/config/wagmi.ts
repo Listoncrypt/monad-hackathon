@@ -18,6 +18,7 @@ export const config = createConfig({
   chains: [monadTestnet],
   connectors: [injected()],
   transports: {
-    [monadTestnet.id]: http(),
+    [monadTestnet.id]: http('https://testnet-rpc.monad.xyz'),
   },
+  pollingInterval: 1000,
 })
